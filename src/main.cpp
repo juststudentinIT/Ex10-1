@@ -1,6 +1,6 @@
 // Copyright 2021 FOM
-#include "postfix.h"
 #include <iostream>
+#include "postfix.h"
 
 int main() {
     std::string str_1 = "1 + 2";

@@ -62,8 +62,7 @@ std::string infix2postfix(std::string infix) {
             if (stack.isEmpty() ||
                 priority(stack.get()) < priority(infix[i])) {
                 stack.push(infix[i]);
-            }
-            else {
+            } else {
                 result = result + stack.pop() + " ";
                 stack.push(infix[i]);
             }
