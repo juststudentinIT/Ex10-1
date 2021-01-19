@@ -1,4 +1,4 @@
-// Copyright 2021 Igumnova Natasha
+// Copyright 2021 FOM
 #ifndef INCLUDE_MYSTACK_H_
 #define INCLUDE_MYSTACK_H_
 
