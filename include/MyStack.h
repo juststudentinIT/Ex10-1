@@ -1,70 +1,60 @@
-// Copyright 2021 FOM
-#include <iostream>
-#include <new>
+// Copyright 2021 Igumnova Natasha
 #ifndef INCLUDE_MYSTACK_H_
 #define INCLUDE_MYSTACK_H_
 
-template<class T>
+#include <iostream>
+#include <string>
+template <class T>
 class MyStack {
  private:
-    unsigned int size;
-    int count;
-    T* ptr;
+     T* stack;
+     int size;
+     int size_max;
 
  public:
-    explicit MyStack(int SIZE) {
-        size = SIZE;
-        ptr = new T[SIZE];
-    }
-    MyStack(const MyStack& str) {
-        size = str.size;
-        ptr = new T[size];
-        int i = 0;
-        while (i < size) {
-            ptr[i] = str.ptr[i];
-            i++;
-        }
-        count = str.count;
-    }
-    ~MyStack() {
-        delete[] ptr;
-    }
-    T get() const {
-        return ptr[count - 1];
-    }
-    T pop() {
-        if (count == 0)
-            return 0;
-        count--;
-        return ptr[count];
-    }
-    void push(T num) {
-        T* tmp;
-        try {
-            tmp = ptr;
-            ptr = new T[count + 1];
-            count++;
-            for (int i = 0; i < count - 1; i++)
-                ptr[i] = tmp[i];
-            ptr[count - 1] = num;
-            if (count > 1)
-                delete[] tmp;
-        }
-        catch (std::bad_alloc w) {
-            std::cout << w.what() << std::endl;
-        }
-    }
-    bool isFull() const {
-        if (count == size)
-            return true;
-        else
-            return false;
-    }
-    bool isEmpty() const {
-        if (count == 0)
-            return true;
-        else
-            return false;
-    }
+     explicit MyStack(int n) {
+         this->size = 0;
+         this->size_max = n;
+         this->stack = new T[n];
+     }
+     MyStack(const MyStack& Stack) {
+         this->size = Stack.size;
+         this->size_max = Stack.size_max;
+         this->stack = new T[Stack.size_max];
+         for (int i = 0; i < size_max; i++) {
+             stack[i] = Stack.stack[i];
+         }
+     }
+     ~MyStack() {
+         delete[] stack;
+         size = 0;
+         size_max = 0;
+     }
+     T get() const {
+         if (!isEmpty()) {
+             return stack[size - 1];
+         }
+         return 0;
+     }
+     T pop() {
+         if (!isEmpty()) {
+             T res = stack[size - 1];
+             size--;
+             return res;
+         }
+         return 0;
+     }
+     void push(T elem) {
+         if (!isFull()) {
+             stack[size] = elem;
+             size++;
+         }
+     }
+     bool isFull() const {
+         return (size == size_max);
+     }
+     bool isEmpty() const {
+         return (size == 0);
+     }
 };
 #endif  // INCLUDE_MYSTACK_H_

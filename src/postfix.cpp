@@ -26,12 +26,12 @@ int priority(char a) {
     }
 }
 
-bool check(char elem) {
-    return (elem >= '0' && elem <= '9' || elem == '.');
+bool check(char el) {
+    return (el >= '0' && el <= '9' || el == '.');
 }
 
 std::string infix2postfix(std::string infix) {
-    MyStack<char> stack(100);
+    MyStack<char> stack(500);
     std::string result = "";
     std::string tm = "";
     for (int i = 0; i < infix.length(); i++) {

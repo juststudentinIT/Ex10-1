@@ -13,15 +13,5 @@ int main() {
     std::cout << infix2postfix(str_4) << std::endl;
     std::string str_5 = "((55 + 56) / (88 - 44) + (5 * 7 / 3))";
     std::cout << infix2postfix(str_5) << std::endl;
-    std::string str_6 = "1 + 2";
-    std::cout << infix2postfix(str_6) << std::endl;
-    std::string str_7 = "5 * 8 + 5";
-    std::cout << infix2postfix(str_7) << std::endl;
-    std::string str_8 = "(67 - 3 * 3 / 8) / (44 + 8 / 5)";
-    std::cout << infix2postfix(str_8) << std::endl;
-    std::string str_9 = "3 / 2 * 6 ";
-    std::cout << infix2postfix(str_9) << std::endl;
-    std::string str_10 = "(28 + 25 + 28 + 25) * 20";
-    std::cout << infix2postfix(str_10) << std::endl;
     return 0;
 }
